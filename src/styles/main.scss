@@ -10,20 +10,88 @@
 }
 
 body {
-  background-image: url(../assets/wallpaper.jpg);
+  background-image: url(../assets/wallpaper-mobile.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 87.2vh;
+  background-position: -3.3rem;
+  height: 100vh;
+
+  @media (min-width: 379px) {
+    background-position: 0rem;
+  }
+
+  @media (min-width: 1088px) {
+    background-image: url(../assets/wallpaper-desktop.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 87.2vh;
+  }
 
   .App {
-    .navegation-bar {
+    .mobile-navegation-bar {
+      visibility: visible;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0rem 2.5rem;
+      padding: 0.8rem 2.5rem;
       background: rgba(0, 0, 0, 0.5);
       border-radius: 0.8rem;
-      margin: 2rem;
+      margin: 2rem 1rem;
+      gap: 1rem;
+
+      @media (min-width: 1088px) {
+        display: none;
+        visibility: hidden;
+      }
+
+      .logo {
+        img {
+          width: 6rem;
+        }
+      }
+
+      .profile ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+
+        @media (min-width: 425px) {
+          gap: 2rem;
+        }
+
+        li {
+          color: white;
+          cursor: pointer;
+
+          img {
+            object-fit: cover;
+            height: 2rem;
+            width: 2rem;
+            transition: all 0.3s ease-in-out;
+            border-radius: 50%;
+
+            &:hover {
+              box-shadow: 0 0 2px 2px red;
+            }
+          }
+        }
+      }
+    }
+    .desktop-navegation-bar {
+      display: none;
+      visibility: hidden;
+
+      @media (min-width: 1088px) {
+        visibility: visible;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0rem 2.5rem;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 0.8rem;
+        margin: 2rem;
+      }
 
       .logo {
         img {
@@ -87,16 +155,155 @@ body {
     main {
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      margin: 3rem;
+      justify-content: center;
+      margin: 2rem;
       color: white;
-      .details {
-        width: 25rem;
+
+      @media (min-width: 440px) {
+        justify-content: flex-start;
+      }
+
+      @media (min-width: 1088px) {
+        margin: 3rem;
+        justify-content: flex-start;
+      }
+      .mobile-details {
+        visibility: visible;
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         justify-content: center;
         flex-direction: column;
         gap: 1.4rem;
+        width: 20rem;
+        text-align: center;
+
+        @media (min-width: 440px) {
+          align-items: flex-start;
+
+          text-align: left;
+        }
+
+        @media (min-width: 1088px) {
+          display: none;
+          visibility: hidden;
+        }
+        .classification {
+          p {
+            color: white;
+            font-weight: 500;
+            background-color: #e79c05;
+            padding: 0.2rem 0.3rem;
+            border-radius: 0.2rem;
+            display: inline;
+            font-size: 0.85rem;
+          }
+        }
+
+        .rating {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 1.2rem;
+
+          .red-color {
+            color: #b93332;
+          }
+
+          .stars,
+          .year {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.9rem;
+          }
+        }
+        .desc {
+          .title {
+            img {
+              width: 17rem;
+            }
+          }
+
+          p {
+            font-size: 0.95rem;
+            margin: 0.8rem 0;
+            line-height: 1.5;
+            font-weight: 500;
+            font-family: "Nunito Sans", sans-serif;
+          }
+        }
+
+        .bttns {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          text-align: center;
+
+          .watch,
+          .list {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+          }
+          button {
+            margin-right: 0.2rem;
+            padding: 0.5rem 1.3rem;
+            border: 0;
+            border-radius: 2rem;
+            outline: 0;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 800;
+            font-family: "Nunito Sans", sans-serif;
+            cursor: pointer;
+
+            @media (min-width: 425px) {
+              margin-right: 1rem;
+            }
+
+            &.watch {
+              background-color: #dc1e1f;
+              transition: all 0.3s ease-in-out;
+
+              &:hover {
+                background-color: #c00000;
+              }
+
+              .play {
+                font-size: 1.3rem;
+              }
+            }
+
+            &.list {
+              background-color: #292928;
+              transition: all 0.3s ease-in-out;
+
+              &:hover {
+                background-color: #1a1a1a;
+              }
+
+              .add {
+                font-size: 1.2rem;
+              }
+            }
+          }
+        }
+      }
+      .desktop-details {
+        display: none;
+        visibility: hidden;
+
+        @media (min-width: 1088px) {
+          visibility: visible;
+          width: 25rem;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          flex-direction: column;
+          gap: 1.4rem;
+        }
 
         .classification {
           p {

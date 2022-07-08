@@ -3,33 +3,23 @@ import { FaSearch } from "react-icons/fa";
 import { BsBellFill } from "react-icons/bs";
 import netflixLogo from "./assets/netflix.png";
 import profilePic from "./assets/profile.png";
+
 import seriesLogo from "./assets/logo.png";
 import { AiFillStar } from "react-icons/ai";
 import { AiFillCaretRight } from "react-icons/ai";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 
-const link = "https://github.com/felipesoarws";
+import DesktopNavegation from "./src_desktop/desktopNavBar";
+import DesktopMainContent from "./src_desktop/desktopMainContent";
 
 function App() {
   return (
     <div className="App">
       <header>
-        <div className="navegation-bar">
+        <DesktopNavegation />
+        <div className="mobile-navegation-bar">
           <div className="logo">
             <img src={netflixLogo} alt="logo" />
-          </div>
-          <div className="itens">
-            <ul>
-              <li>Home</li>
-              <li>TV Shows</li>
-              <li>Movies</li>
-              <li>Recently Added</li>
-              <li>
-                <a href={link} target="blank">
-                  @felipesoarws
-                </a>
-              </li>
-            </ul>
           </div>
           <div className="profile">
             <ul>
@@ -47,7 +37,8 @@ function App() {
         </div>
       </header>
       <main>
-        <div className="details">
+        <DesktopMainContent />
+        <div className="mobile-details">
           <div className="classification">
             <p>16+</p>
           </div>

@@ -12,13 +12,30 @@
 }
 
 body {
-  background-image: url(../assets/wallpaper.jpg);
+  background-image: url(../assets/wallpaper-mobile.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 87.2vh;
+  background-position: -3.3rem;
+  height: 100vh;
 }
 
-body .App .navegation-bar {
+@media (min-width: 379px) {
+  body {
+    background-position: 0rem;
+  }
+}
+
+@media (min-width: 1088px) {
+  body {
+    background-image: url(../assets/wallpaper-desktop.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 87.2vh;
+  }
+}
+
+body .App .mobile-navegation-bar {
+  visibility: visible;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,17 +45,92 @@ body .App .navegation-bar {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0rem 2.5rem;
+  padding: 0.8rem 2.5rem;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 0.8rem;
-  margin: 2rem;
+  margin: 2rem 1rem;
+  gap: 1rem;
 }
 
-body .App .navegation-bar .logo img {
+@media (min-width: 1088px) {
+  body .App .mobile-navegation-bar {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+body .App .mobile-navegation-bar .logo img {
+  width: 6rem;
+}
+
+body .App .mobile-navegation-bar .profile ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 1rem;
+}
+
+@media (min-width: 425px) {
+  body .App .mobile-navegation-bar .profile ul {
+    gap: 2rem;
+  }
+}
+
+body .App .mobile-navegation-bar .profile ul li {
+  color: white;
+  cursor: pointer;
+}
+
+body .App .mobile-navegation-bar .profile ul li img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 2rem;
+  width: 2rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  border-radius: 50%;
+}
+
+body .App .mobile-navegation-bar .profile ul li img:hover {
+  -webkit-box-shadow: 0 0 2px 2px red;
+          box-shadow: 0 0 2px 2px red;
+}
+
+body .App .desktop-navegation-bar {
+  display: none;
+  visibility: hidden;
+}
+
+@media (min-width: 1088px) {
+  body .App .desktop-navegation-bar {
+    visibility: visible;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 0rem 2.5rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 0.8rem;
+    margin: 2rem;
+  }
+}
+
+body .App .desktop-navegation-bar .logo img {
   width: 7rem;
 }
 
-body .App .navegation-bar .itens ul {
+body .App .desktop-navegation-bar .itens ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -51,7 +143,7 @@ body .App .navegation-bar .itens ul {
   gap: 3rem;
 }
 
-body .App .navegation-bar .itens ul li {
+body .App .desktop-navegation-bar .itens ul li {
   color: white;
   font-weight: 500;
   cursor: pointer;
@@ -61,17 +153,17 @@ body .App .navegation-bar .itens ul li {
   transition: all 0.3s ease-in-out;
 }
 
-body .App .navegation-bar .itens ul li a {
+body .App .desktop-navegation-bar .itens ul li a {
   color: white;
   font-weight: 500;
   text-decoration: none;
 }
 
-body .App .navegation-bar .itens ul li:hover {
+body .App .desktop-navegation-bar .itens ul li:hover {
   border-bottom: 2px solid red;
 }
 
-body .App .navegation-bar .profile ul {
+body .App .desktop-navegation-bar .profile ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -84,12 +176,12 @@ body .App .navegation-bar .profile ul {
   gap: 2rem;
 }
 
-body .App .navegation-bar .profile ul li {
+body .App .desktop-navegation-bar .profile ul li {
   color: white;
   cursor: pointer;
 }
 
-body .App .navegation-bar .profile ul li img {
+body .App .desktop-navegation-bar .profile ul li img {
   -o-object-fit: cover;
      object-fit: cover;
   height: 2rem;
@@ -99,7 +191,7 @@ body .App .navegation-bar .profile ul li img {
   border-radius: 50%;
 }
 
-body .App .navegation-bar .profile ul li img:hover {
+body .App .desktop-navegation-bar .profile ul li img:hover {
   -webkit-box-shadow: 0 0 2px 2px red;
           box-shadow: 0 0 2px 2px red;
 }
@@ -111,21 +203,38 @@ body .App main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  margin: 3rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 2rem;
   color: white;
 }
 
-body .App main .details {
-  width: 25rem;
+@media (min-width: 440px) {
+  body .App main {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
+@media (min-width: 1088px) {
+  body .App main {
+    margin: 3rem;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
+body .App main .mobile-details {
+  visibility: visible;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -134,9 +243,27 @@ body .App main .details {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 1.4rem;
+  width: 20rem;
+  text-align: center;
 }
 
-body .App main .details .classification p {
+@media (min-width: 440px) {
+  body .App main .mobile-details {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1088px) {
+  body .App main .mobile-details {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+body .App main .mobile-details .classification p {
   color: white;
   font-weight: 500;
   background-color: #e79c05;
@@ -146,7 +273,7 @@ body .App main .details .classification p {
   font-size: 0.85rem;
 }
 
-body .App main .details .rating {
+body .App main .mobile-details .rating {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -159,12 +286,12 @@ body .App main .details .rating {
   gap: 1.2rem;
 }
 
-body .App main .details .rating .red-color {
+body .App main .mobile-details .rating .red-color {
   color: #b93332;
 }
 
-body .App main .details .rating .stars,
-body .App main .details .rating .year {
+body .App main .mobile-details .rating .stars,
+body .App main .mobile-details .rating .year {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -177,13 +304,11 @@ body .App main .details .rating .year {
   gap: 0.9rem;
 }
 
-body .App main .details .desc .title img {
-  width: 22rem;
-  -webkit-transform: translateX(-2rem);
-          transform: translateX(-2rem);
+body .App main .mobile-details .desc .title img {
+  width: 17rem;
 }
 
-body .App main .details .desc p {
+body .App main .mobile-details .desc p {
   font-size: 0.95rem;
   margin: 0.8rem 0;
   line-height: 1.5;
@@ -191,7 +316,22 @@ body .App main .details .desc p {
   font-family: "Nunito Sans", sans-serif;
 }
 
-body .App main .details .bttns {
+body .App main .mobile-details .bttns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+body .App main .mobile-details .bttns .watch,
+body .App main .mobile-details .bttns .list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -204,8 +344,135 @@ body .App main .details .bttns {
   gap: 0.5rem;
 }
 
-body .App main .details .bttns .watch,
-body .App main .details .bttns .list {
+body .App main .mobile-details .bttns button {
+  margin-right: 0.2rem;
+  padding: 0.5rem 1.3rem;
+  border: 0;
+  border-radius: 2rem;
+  outline: 0;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-family: "Nunito Sans", sans-serif;
+  cursor: pointer;
+}
+
+@media (min-width: 425px) {
+  body .App main .mobile-details .bttns button {
+    margin-right: 1rem;
+  }
+}
+
+body .App main .mobile-details .bttns button.watch {
+  background-color: #dc1e1f;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+body .App main .mobile-details .bttns button.watch:hover {
+  background-color: #c00000;
+}
+
+body .App main .mobile-details .bttns button.watch .play {
+  font-size: 1.3rem;
+}
+
+body .App main .mobile-details .bttns button.list {
+  background-color: #292928;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+body .App main .mobile-details .bttns button.list:hover {
+  background-color: #1a1a1a;
+}
+
+body .App main .mobile-details .bttns button.list .add {
+  font-size: 1.2rem;
+}
+
+body .App main .desktop-details {
+  display: none;
+  visibility: hidden;
+}
+
+@media (min-width: 1088px) {
+  body .App main .desktop-details {
+    visibility: visible;
+    width: 25rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 1.4rem;
+  }
+}
+
+body .App main .desktop-details .classification p {
+  color: white;
+  font-weight: 500;
+  background-color: #e79c05;
+  padding: 0.2rem 0.3rem;
+  border-radius: 0.2rem;
+  display: inline;
+  font-size: 0.85rem;
+}
+
+body .App main .desktop-details .rating {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 1.2rem;
+}
+
+body .App main .desktop-details .rating .red-color {
+  color: #b93332;
+}
+
+body .App main .desktop-details .rating .stars,
+body .App main .desktop-details .rating .year {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 0.9rem;
+}
+
+body .App main .desktop-details .desc .title img {
+  width: 22rem;
+  -webkit-transform: translateX(-2rem);
+          transform: translateX(-2rem);
+}
+
+body .App main .desktop-details .desc p {
+  font-size: 0.95rem;
+  margin: 0.8rem 0;
+  line-height: 1.5;
+  font-weight: 500;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+body .App main .desktop-details .bttns {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -218,7 +485,21 @@ body .App main .details .bttns .list {
   gap: 0.5rem;
 }
 
-body .App main .details .bttns button {
+body .App main .desktop-details .bttns .watch,
+body .App main .desktop-details .bttns .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.5rem;
+}
+
+body .App main .desktop-details .bttns button {
   margin-right: 1rem;
   padding: 0.5rem 1.3rem;
   border: 0;
@@ -231,31 +512,31 @@ body .App main .details .bttns button {
   cursor: pointer;
 }
 
-body .App main .details .bttns button.watch {
+body .App main .desktop-details .bttns button.watch {
   background-color: #dc1e1f;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
-body .App main .details .bttns button.watch:hover {
+body .App main .desktop-details .bttns button.watch:hover {
   background-color: #c00000;
 }
 
-body .App main .details .bttns button.watch .play {
+body .App main .desktop-details .bttns button.watch .play {
   font-size: 1.3rem;
 }
 
-body .App main .details .bttns button.list {
+body .App main .desktop-details .bttns button.list {
   background-color: #292928;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
-body .App main .details .bttns button.list:hover {
+body .App main .desktop-details .bttns button.list:hover {
   background-color: #1a1a1a;
 }
 
-body .App main .details .bttns button.list .add {
+body .App main .desktop-details .bttns button.list .add {
   font-size: 1.2rem;
 }
 /*# sourceMappingURL=main.css.map */
